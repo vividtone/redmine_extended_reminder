@@ -4,10 +4,16 @@ module RedmineExtendedReminder
   module MailerModelPatch
     def self.included(base)
       base.extend(ClassMethods)
+      base.send(:include, InstanceMethods)
+
       base.class_eval do
+        # replace class methods
         class << self
           alias_method_chain :reminders, :patch
         end        
+
+        # replace instance methods
+        alias_method_chain :reminder, :patch
       end
     end
   end
@@ -40,6 +46,27 @@ module RedmineExtendedReminder
       issues_by_assignee.each do |assignee, issues|
         reminder(assignee, issues, days).deliver if assignee.is_a?(User) && assignee.active?
       end
+    end
+  end
+
+  module InstanceMethods
+    def reminder_with_patch(user, issues, days)
+      set_language_if_valid user.language
+      before_due_index = issues.find_index {|issue| Date.today <= issue.due_date}
+      if before_due_index
+        @overdue_issues = issues.slice(0...before_due_index)
+        @before_due_issues = issues.slice(before_due_index..-1).group_by(&:due_date)
+      else
+        @overdue_issues = issues
+      end
+      @overdue_issues ||= []
+      @before_due_issues ||= []
+      @days = days
+      @issues_url = url_for(:controller => 'issues', :action => 'index',
+                                  :set_filter => 1, :assigned_to_id => user.id,
+                                  :sort => 'due_date:asc')
+      mail :to => user.mail,
+        :subject => l(:mail_subject_reminder, :count => issues.size, :days => days)
     end
   end
 end
