@@ -51,16 +51,7 @@ module RedmineExtendedReminder
 
   module InstanceMethods
     def reminder_with_patch(user, issues, days)
-      set_language_if_valid user.language
-      before_due_index = issues.find_index {|issue| Date.today <= issue.due_date}
-      if before_due_index
-        @overdue_issues = issues.slice(0...before_due_index)
-        @before_due_issues = issues.slice(before_due_index..-1).group_by(&:due_date)
-      else
-        @overdue_issues = issues
-      end
-      @overdue_issues ||= []
-      @before_due_issues ||= []
+      @issues_by_date = issues.group_by(&:due_date)
       @days = days
       @issues_url = url_for(:controller => 'issues', :action => 'index',
                                   :set_filter => 1, :assigned_to_id => user.id,

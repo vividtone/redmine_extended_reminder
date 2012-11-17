@@ -1,11 +1,4 @@
-<strong><%= l(:extended_reminder_overdue) %></strong>
-<ul>
-<% @overdue_issues.each do |issue| -%>
-  <li><%=h issue.project %> - <%=link_to(h("#{issue.tracker} ##{issue.id}"), :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: (<%=h issue.status %>) <%=h issue.subject %></li>
-<% end -%>
-</ul>
-
-<% @before_due_issues.each do |due_date, issues| -%>
+<% @issues_by_date.each do |due_date, issues| -%>
   <strong><%= due_date %></strong>
   <ul>
     <% issues.each do |issue| -%>

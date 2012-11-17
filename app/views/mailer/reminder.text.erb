@@ -1,9 +1,4 @@
-<%= "[#{l(:extended_reminder_overdue)}]" %>
-<% @overdue_issues.each do |issue| -%>
-* <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: (#{issue.status}) #{issue.subject}" %>
-<% end -%>
-
-<% @before_due_issues.each do |due_date, issues| -%>
+<% @issues_by_date.each do |due_date, issues| -%>
 <%= "[#{due_date}]" %>
 <% issues.each do |issue| -%>
 * <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: (#{issue.status}) #{issue.subject}" %>
