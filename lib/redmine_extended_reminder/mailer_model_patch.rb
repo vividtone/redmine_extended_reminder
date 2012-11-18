@@ -16,9 +16,15 @@ module RedmineExtendedReminder
 
   module InstanceMethods
     def reminder_with_patch(user, issues, days)
+      saved_status = ActionMailer::Base.perform_deliveries
+      if user.pref[:extended_reminder_no_reminders]
+        ActionMailer::Base.perform_deliveries = false
+      end
       @issues_by_date = issues.sort_by(&:due_date).group_by(&:due_date)
       @count = issues.size
       reminder_without_patch(user, issues, days)
+    ensure
+      ActionMailer::Base.perform_deliveries = saved_status
     end
   end
 end
