@@ -4,3 +4,4 @@ ja:
   extended_reminder_days_after: "%{days}後"
   extended_reminder_send_now: "今すぐリマインダを送信"
   extended_reminder_no_reminders: "リマインダ不要"
+  extended_reminder_no_reminders_is_set: "リマインダは送信されていません。このユーザーは「リマインダ不要」がONです。"

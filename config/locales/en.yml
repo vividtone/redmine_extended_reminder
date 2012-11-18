@@ -4,3 +4,4 @@ en:
   extended_reminder_days_after: "%{days} after"
   extended_reminder_send_now: "Send reminder now"
   extended_reminder_no_reminders: "No reminders"
+  extended_reminder_no_reminders_is_set: "A reminder is not sent. This user set the 'No reminders' settings on."
