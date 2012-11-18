@@ -9,6 +9,8 @@ module RedmineExtendedReminder
       base.send(:include, InstanceMethods)
 
       base.class_eval do
+        helper :extended_reminder
+        
         # replace class methods
         class << self
           alias_method_chain :reminders, :patch

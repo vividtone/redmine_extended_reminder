@@ -1,2 +1,3 @@
 ja:
-  extended_reminder_overdue: "期日超過"
+  extended_reminder_days_ago: "%{days}前"
+  extended_reminder_days_after: "%{days}後"

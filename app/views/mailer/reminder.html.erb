@@ -3,7 +3,7 @@
   <% if due_date_prev <= Date.today && Date.today <= due_date -%>
     <hr/>
   <% end -%>
-  <strong><%= @date_labels[due_date] || due_date %></strong>
+  <strong><%= due_date %> (<%= due_date_in_words(due_date) %>)</strong>
   <ul>
     <% issues.each do |issue| -%>
       <li><%=h issue.project %> - <%=link_to(h("#{issue.tracker} ##{issue.id}"), :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: (<%=h issue.status %>) <%=h issue.subject %></li>
