@@ -1,5 +1,10 @@
+<% due_date_prev = Date.new -%>
 <% @issues_by_date.each do |due_date, issues| -%>
-<%= "[#{due_date}]" %>
+<% if due_date_prev <= Date.today && Date.today <= due_date -%>
+<%= "-" * 70 if due_date_prev <= Date.today && Date.today <= due_date %>
+
+<% end -%>
+[<%= @date_labels[due_date] || due_date %>]
 <% issues.each do |issue| -%>
 * <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: (#{issue.status}) #{issue.subject}" %>
 <% end -%>

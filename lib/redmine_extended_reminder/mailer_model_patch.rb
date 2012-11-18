@@ -1,6 +1,8 @@
 require_dependency 'mailer'
 
 module RedmineExtendedReminder
+  include ActionView::Helpers::DateHelper
+
   module MailerModelPatch
     def self.included(base)
       base.extend(ClassMethods)
@@ -52,6 +54,11 @@ module RedmineExtendedReminder
   module InstanceMethods
     def reminder_with_patch(user, issues, days)
       @issues_by_date = issues.group_by(&:due_date)
+      @date_labels = {
+        Date.yesterday => I18n.t(:label_yesterday),
+        Date.today => I18n.t(:label_today),
+        Date.tomorrow => I18n.t(:label_tomorrow),
+      }
       @days = days
       @issues_url = url_for(:controller => 'issues', :action => 'index',
                                   :set_filter => 1, :assigned_to_id => user.id,

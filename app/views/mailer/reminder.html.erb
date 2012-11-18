@@ -1,10 +1,15 @@
+<% due_date_prev = Date.new -%>
 <% @issues_by_date.each do |due_date, issues| -%>
-  <strong><%= due_date %></strong>
+  <% if due_date_prev <= Date.today && Date.today <= due_date -%>
+    <hr/>
+  <% end -%>
+  <strong><%= @date_labels[due_date] || due_date %></strong>
   <ul>
     <% issues.each do |issue| -%>
       <li><%=h issue.project %> - <%=link_to(h("#{issue.tracker} ##{issue.id}"), :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: (<%=h issue.status %>) <%=h issue.subject %></li>
     <% end -%>
   </ul>
-<% end %>
+  <% due_date_prev = due_date -%>
+<% end -%>
 
 <p><%= link_to l(:label_issue_view_all), @issues_url %></p>
