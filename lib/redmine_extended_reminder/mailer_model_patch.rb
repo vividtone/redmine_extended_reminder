@@ -18,7 +18,7 @@ module RedmineExtendedReminder
 
   module InstanceMethods
     def reminder_with_patch(user, issues, days)
-      @issues_by_date = issues.group_by(&:due_date)
+      @issues_by_date = issues.sort_by(&:due_date).group_by(&:due_date)
       @days = days
       @count = issues.size
       @issues_url = url_for(:controller => 'issues', :action => 'index',
