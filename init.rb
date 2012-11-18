@@ -1,4 +1,5 @@
 require 'redmine'
+require_dependency 'redmine_extended_reminder/hooks'
 
 object_to_prepare = Rails.configuration
 
