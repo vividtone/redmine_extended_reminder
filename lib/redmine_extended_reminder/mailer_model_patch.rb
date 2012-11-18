@@ -10,7 +10,7 @@ module RedmineExtendedReminder
 
       base.class_eval do
         helper :extended_reminder
-        
+
         # replace class methods
         class << self
           alias_method_chain :reminders, :patch
@@ -62,11 +62,12 @@ module RedmineExtendedReminder
         Date.tomorrow => I18n.t(:label_tomorrow),
       }
       @days = days
+      @count = issues.size
       @issues_url = url_for(:controller => 'issues', :action => 'index',
                                   :set_filter => 1, :assigned_to_id => user.id,
                                   :sort => 'due_date:asc')
       mail :to => user.mail,
-        :subject => l(:mail_subject_reminder, :count => issues.size, :days => days)
+        :subject => l(:mail_subject_reminder, :count => @count, :days => days)
     end
   end
 end

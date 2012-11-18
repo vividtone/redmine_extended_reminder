@@ -1,3 +1,5 @@
+<p><%= l(:mail_body_reminder, :count => @count, :days => @days) %></p>
+
 <% due_date_prev = Date.new -%>
 <% @issues_by_date.each do |due_date, issues| -%>
   <% if due_date_prev <= Date.today && Date.today <= due_date -%>
