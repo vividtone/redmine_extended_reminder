@@ -6,7 +6,7 @@ module ExtendedReminderHelper
     when Date.today
       l(:label_today)
     when Date.tomorrow
-      l(:label_tomorrow)
+      l(:extended_reminder_tomorrow)
     else
       if due_date < Date.today
         l(:extended_reminder_days_ago, :days => distance_of_time_in_words_to_now(due_date))

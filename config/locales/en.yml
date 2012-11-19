@@ -1,5 +1,6 @@
 en:
   extended_reminder_settings: "Redminder settings"
+  extended_reminder_tomorrow: "tomorrow"
   extended_reminder_days_ago: "%{days} ago"
   extended_reminder_days_after: "%{days} after"
   extended_reminder_send_now: "Send reminder now"

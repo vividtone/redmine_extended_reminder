@@ -1,5 +1,6 @@
 ja:
   extended_reminder_settings: "リマインダ設定"
+  extended_reminder_tomorrow: "明日"
   extended_reminder_days_ago: "%{days}前"
   extended_reminder_days_after: "%{days}後"
   extended_reminder_send_now: "今すぐリマインダを送信"
