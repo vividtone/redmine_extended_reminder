@@ -2,7 +2,7 @@
 
 <% due_date_prev = Date.new -%>
 <% @issues_by_date.each do |due_date, issues| -%>
-<% if due_date_prev <= Date.today && Date.today <= due_date -%>
+<% if due_date_prev < Date.today && Date.today <= due_date -%>
 <%= "-" * 70 if due_date_prev <= Date.today && Date.today <= due_date %>
 
 <% end -%>

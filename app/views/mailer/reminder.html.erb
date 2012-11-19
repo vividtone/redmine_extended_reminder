@@ -2,7 +2,7 @@
 
 <% due_date_prev = Date.new -%>
 <% @issues_by_date.each do |due_date, issues| -%>
-  <% if due_date_prev <= Date.today && Date.today <= due_date -%>
+  <% if due_date_prev < Date.today && Date.today <= due_date -%>
     <hr/>
   <% end -%>
   <strong><%= due_date %> (<%= due_date_in_words(due_date) %>)</strong>
