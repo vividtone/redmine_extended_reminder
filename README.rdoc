@@ -1,3 +1,16 @@
 = redmine_extended_reminder
 
-Description goes here
+redmine_extended_reminderはRedmineのリマインダ機能を拡張するプラグインで
+す。本プラグインをインストールすることでリマインダに以下の機能が追加され
+ます。
+
+- チケットの期日を表示
+- チケットを期日ごとにグルーピングして表示
+- チケットのステータスを表示
+- 個人設定画面で自分宛のリマインダを送信しないよう設定可能
+- 個人設定画面で自分宛のリマインダを手動送信可能
+
+
+== 拡張されたリマインダのサンプル
+
+http://cloud.github.com/downloads/vividtone/redmine_extended_reminder/extended_reminder_sample.png
