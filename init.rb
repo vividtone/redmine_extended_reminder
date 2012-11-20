@@ -8,6 +8,7 @@ object_to_prepare.to_prepare do
 end
 
 Redmine::Plugin.register :redmine_extended_reminder do
+  requires_redmine :version_or_higher => '2.0'
   name 'Redmine Extended Reminder plugin'
   author 'MAEDA, Go'
   description 'Improves reminders.'
