@@ -1,9 +1,7 @@
 require 'redmine'
 require_dependency 'redmine_extended_reminder/hooks'
 
-object_to_prepare = Rails.configuration
-
-object_to_prepare.to_prepare do
+Rails.configuration.to_prepare do
   require_dependency 'redmine_extended_reminder/mailer_model_patch'
 end
 
