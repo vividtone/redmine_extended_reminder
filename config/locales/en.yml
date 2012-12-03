@@ -6,3 +6,5 @@ en:
   extended_reminder_send_now: "Send reminder now"
   extended_reminder_no_reminders: "No reminders"
   extended_reminder_no_reminders_is_set: "A reminder is not sent. This user set the 'No reminders' settings on."
+  extended_reminder_days: "days"
+  extended_reminder_how_many_days: "how many days in the future to remind about (default value is used if 0)."

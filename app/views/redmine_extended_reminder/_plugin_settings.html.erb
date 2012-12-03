@@ -1,0 +1,5 @@
+<p>
+  <%= content_tag(:label, l(:extended_reminder_days), :for => 'settings_days') %>
+  <%= text_field_tag 'settings[days]', @settings['days'], :type => 'number', :min => 0 %><br/>
+  <em class="info"><%= l(:extended_reminder_how_many_days) %></em>
+</p>

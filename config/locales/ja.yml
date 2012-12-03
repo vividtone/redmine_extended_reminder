@@ -6,3 +6,5 @@ ja:
   extended_reminder_send_now: "今すぐリマインダを送信"
   extended_reminder_no_reminders: "リマインダ不要"
   extended_reminder_no_reminders_is_set: "リマインダは送信されていません。このユーザーは「リマインダ不要」がONです。"
+  extended_reminder_days: "日数"
+  extended_reminder_how_many_days: "期日の何日前から通知対象にするのか指定してください(0を指定するとデフォルト値に従います)。"

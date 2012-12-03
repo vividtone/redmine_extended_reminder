@@ -13,4 +13,8 @@ Redmine::Plugin.register :redmine_extended_reminder do
   version '0.0.1'
   url 'https://github.com/vividtone/redmine_extended_reminder'
   author_url 'https://www.facebook.com/MAEDA.Go'
+
+  settings(
+    :default => {'days' => '0'},
+    :partial => 'redmine_extended_reminder/plugin_settings')  
 end

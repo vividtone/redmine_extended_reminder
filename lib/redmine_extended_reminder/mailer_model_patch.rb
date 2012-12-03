@@ -3,14 +3,27 @@ require_dependency 'mailer'
 module RedmineExtendedReminder
   module MailerModelPatch
     def self.included(base)
+      base.extend(ClassMethods)
       base.send(:include, InstanceMethods)
 
       base.class_eval do
+        # replace class methods
         helper :extended_reminder
+        class << self
+          alias_method_chain :reminders, :patch
+        end
 
         # replace instance methods
         alias_method_chain :reminder, :patch
       end
+    end
+  end
+
+  module ClassMethods
+    def reminders_with_patch(options={})
+      days_override = Setting.plugin_redmine_extended_reminder[:days].to_i
+      options[:days] = days_override if days_override > 0
+      reminders_without_patch(options)
     end
   end
 
