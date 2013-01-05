@@ -14,3 +14,9 @@ redmine_extended_reminderはRedmineのリマインダ機能を拡張するプラ
 == 拡張されたリマインダのサンプル
 
 http://cloud.github.com/downloads/vividtone/redmine_extended_reminder/extended_reminder_sample.png
+
+
+== インストール方法
+
+1. Redmineのpluginsディレクトリ以下にプラグイン一式をインストール
+2. bundle install
