@@ -12,10 +12,6 @@ class RedmineExtendedReminder::SettingsController < ApplicationController
 
   def send_reminder
     user = User.current
-    if user.pref[:extended_reminder_no_reminders]
-      flash[:error] = l(:extended_reminder_no_reminders_is_set)
-    end
-
     unless user.pref[:extended_reminder_no_reminders]
       Mailer.reminders(:users => [user.id])
       flash[:notice] = l(:notice_email_sent, :value => user.mail)
