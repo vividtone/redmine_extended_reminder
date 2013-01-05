@@ -21,6 +21,11 @@ module RedmineExtendedReminder
 
   module ClassMethods
     def reminders_with_patch(options={})
+      if Setting.plugin_redmine_extended_reminder[:disable_on_non_woking_days].to_i != 0
+        date_calc = Object.new
+        date_calc.extend Redmine::Utils::DateCalculation
+        return nil if date_calc.non_working_week_days.include?(Date.today.wday)
+      end
       days_override = Setting.plugin_redmine_extended_reminder[:days].to_i
       options[:days] = days_override if days_override > 0
       reminders_without_patch(options)

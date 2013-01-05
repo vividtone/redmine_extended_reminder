@@ -4,4 +4,12 @@
   = text_field_tag 'settings[days]', @settings['days'], :type => 'number', :min => 0
   %br
   %em.info
-    = l(:extended_reminder_how_many_days)
+    = l(:extended_reminder_info_how_many_days)
+
+%p
+  %label{:for => 'settings_disable_on_non_woking_days'}
+    = l(:extended_reminder_disable_on_non_woking_days)
+  = check_box_tag 'settings[disable_on_non_woking_days]', 1, @settings['disable_on_non_woking_days']
+  %br
+  %em.info
+    = l(:extended_reminder_info_disable_on_non_woking_days)
