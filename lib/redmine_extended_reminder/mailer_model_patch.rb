@@ -22,7 +22,7 @@ module RedmineExtendedReminder
   module ClassMethods
     def reminders_with_patch(options={})
       # Non-working days setting is supported in Redmine 2.2 or higher.
-      if  Redmine::VERSION.to_a[0..1].join('.').to_f >= 2.2
+      if Redmine::VERSION.to_a[0..1].join('.').to_f >= 2.2
         if Setting.plugin_redmine_extended_reminder[:disable_on_non_woking_days].to_i != 0
           date_calc = Object.new
           date_calc.extend Redmine::Utils::DateCalculation
