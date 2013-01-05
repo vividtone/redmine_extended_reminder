@@ -1,0 +1,12 @@
+%h4
+  = l(:extended_reminder_settings)
+
+%fieldset.box{:style => "margin-right: 1em;"}
+  = form_tag :controller => 'redmine_extended_reminder/settings', :action => 'update' do
+    %p
+      %label
+        = check_box_tag "extended_reminder_no_reminders", 1, User.current.pref[:extended_reminder_no_reminders]
+        = l(:extended_reminder_no_reminders)
+    = submit_tag l(:button_save)
+
+= link_to l(:extended_reminder_send_now), :controller => 'redmine_extended_reminder/settings', :action => 'send_reminder'

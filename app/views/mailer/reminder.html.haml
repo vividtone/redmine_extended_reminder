@@ -1,0 +1,18 @@
+%p
+  = l(:mail_body_reminder, :count => @count, :days => @days)
+
+- due_date_prev = Date.new
+- @issues_by_date.each do |due_date, issues|
+  - if due_date_prev < Date.today && Date.today <= due_date
+    %hr
+
+  %strong
+    #{due_date} (#{due_date_in_words(due_date)})
+  %ul
+    - issues.each do |issue|
+      %li
+        #{h issue.project} - #{link_to(h("#{issue.tracker} ##{issue.id}"), :controller => 'issues', :action => 'show', :id => issue, :only_path => false)}: (#{h issue.status}) #{h issue.subject}
+  - due_date_prev = due_date
+
+%p
+  = link_to l(:label_issue_view_all), @issues_url

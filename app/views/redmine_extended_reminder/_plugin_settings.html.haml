@@ -1,0 +1,7 @@
+%p
+  %label{:for => 'settings_days'}
+    = l(:extended_reminder_days)
+  = text_field_tag 'settings[days]', @settings['days'], :type => 'number', :min => 0
+  %br
+  %em.info
+    = l(:extended_reminder_how_many_days)
