@@ -10,11 +10,13 @@ module RedmineExtendedReminder
         # replace class methods
         helper :extended_reminder
         class << self
-          alias_method_chain :reminders, :patch
+          alias_method :reminders_without_patch, :reminders
+          alias_method :reminders, :reminders_with_patch
         end
 
         # replace instance methods
-        alias_method_chain :reminder, :patch
+        alias_method :reminder_without_patch, :reminder
+        alias_method :reminder, :reminder_with_patch
       end
     end
   end
