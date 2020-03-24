@@ -1,5 +1,9 @@
 class RedmineExtendedReminder::SettingsController < ApplicationController
-  before_filter :require_login
+  if Rails::VERSION::MAJOR < 4
+    before_filter :require_login
+  else
+    before_action :require_login
+  end
 
   def update
     user = User.current
