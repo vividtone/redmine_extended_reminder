@@ -12,4 +12,4 @@
     * #{issue.project} - #{issue.tracker} ##{issue.id}: (#{issue.status}) #{issue.subject}
     \
 
-= @issues_url
+= (@issues_url || @open_issues_url)

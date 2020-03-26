@@ -15,4 +15,4 @@
   - due_date_prev = due_date
 
 %p
-  = link_to l(:label_issue_view_all), @issues_url
+  = link_to l(:label_issue_view_all), (@issues_url || @open_issues_url)
