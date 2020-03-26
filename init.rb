@@ -6,15 +6,15 @@ Rails.configuration.to_prepare do
 end
 
 Redmine::Plugin.register :redmine_extended_reminder do
-  requires_redmine :version_or_higher => '2.0'
+  requires_redmine :version_or_higher => '3.0'
   name 'Redmine Extended Reminder plugin'
   author 'MAEDA, Go'
-  description 'Improves reminders.'
-  version '0.0.1'
+  description 'Improves email reminders'
+  version '0.0.2'
   url 'https://github.com/vividtone/redmine_extended_reminder'
   author_url 'https://www.facebook.com/MAEDA.Go'
 
   settings(
     :default => {'days' => '0', 'disable_on_non_woking_days' => 0},
-    :partial => 'redmine_extended_reminder/plugin_settings')  
+    :partial => 'redmine_extended_reminder/plugin_settings')
 end
