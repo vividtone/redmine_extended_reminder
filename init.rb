@@ -11,7 +11,7 @@ Redmine::Plugin.register :redmine_extended_reminder do
   name 'Redmine Extended Reminder plugin'
   author 'MAEDA, Go'
   description 'Improves email reminders'
-  version '0.0.2'
+  version '0.0.3'
   url 'https://github.com/vividtone/redmine_extended_reminder'
   author_url 'https://www.facebook.com/MAEDA.Go'
 
